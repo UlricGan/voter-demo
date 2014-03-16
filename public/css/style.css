@@ -1,0 +1,137 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+table{
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+}
+
+.main{
+	width: 100%;
+	text-align: center;
+}
+
+.result-item{
+	display: inline-block;
+	width: 400px;
+	margin-right: 1%;
+	margin-left: 1%;
+	margin-bottom: 20px;
+}
+
+.result-title{
+	background-color: #EDF1F7;
+}
+
+.result-title th{
+	padding: 10px 0;
+}
+
+.result-title th:first-child{
+	padding-left: 20px;
+	padding-top: 30px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.result-title th:last-child{
+	width: 162px;
+	text-align: center;
+	padding-right: 15px;
+}
+
+.result-item img{
+	width: 150px;
+	border: 1px solid #D9E0E6;
+	padding: 5px;
+	background-color: white;
+}
+
+.result-num{
+	background-color: white;
+	border-bottom: 1px solid #D9E0E6;
+	height: 40px;
+}
+
+.result-num td:first-child{
+	padding-left: 20px;
+	text-align: left;
+}
+
+.result-num td:last-child{
+	width: 162px;
+	padding-right: 15px;
+}
+
+
+.result-num span{
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+}
+
+.result-num span:first-child{
+	border-right: 1px solid #D9E0E6;
+}
+
+
+
+/*_________Vote page________*/
+
+.vote-img a{
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.vote-img h3{
+	text-align: center;
+	background-color: #0C2B3B;
+	color: white;
+	font-size: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.vote-img img{
+	width: 250px;
+}
+
+.vote-result{
+	position: relative;
+	top:-200px;
+	width: 180px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	background-color: white;
+	text-align: center;
+	display: none;
+}
+
+.vote-left .vote-result{
+	border-radius: 50px 0 0 50px;
+	left: 70px;
+}
+
+.vote-right .vote-result{
+	border-radius: 0 50px 50px 0;
+}
+
+
+
+
+
+
+
+
+
+
+

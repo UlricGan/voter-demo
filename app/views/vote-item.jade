@@ -1,0 +1,12 @@
+li.vote-item
+	.vote-title
+		h2= val.competitors[0]+' VS '+val.competitors[1]+': '+val.aspect
+	.vote-img
+		a.vote-left(vote-cop='0', vote-aspect= val.aspect)
+			h3= val.competitors[0]
+			img(src= '/images/vote_'+val.aspect+'_1.jpg')
+			div.vote-result= val.vote[0]
+		a.vote-right(vote-cop='1', vote-aspect= val.aspect)
+			h3= val.competitors[1]
+			img(src= '/images/vote_'+val.aspect+'_2.jpg')
+			div.vote-result= val.vote[1]
