@@ -8,14 +8,8 @@ var voteSchema=new Schema({
 	vote: [Number, Number]
 });
 
-var VoteModel=mongoose.model('Votes', voteSchema);
-
-var Vote=function(vote){
-	
-};
-
-Vote.prototype.getAll=function(callback){
-	VoteModel.find(function(err, votes){
+voteSchema.statics.getAll=function(callback){
+	this.find(function(err, votes){
 		if(err){
 			callback(err);
 		}
@@ -23,8 +17,8 @@ Vote.prototype.getAll=function(callback){
 	});
 };
 
-Vote.prototype.getOne=function(name,callback){
-	VoteModel.findOne({aspect: name}, function(err, vote){
+voteSchema.statics.getOne=function(name,callback){
+	this.findOne({aspect: name}, function(err, vote){
 		if(err){
 			callback(err);
 		}
@@ -32,8 +26,8 @@ Vote.prototype.getOne=function(name,callback){
 	});
 };
 
-Vote.prototype.add=function(name, competitor, callback){
-	VoteModel.findOne({aspect: name}, function (err, result){
+voteSchema.statics.add=function(name, competitor, callback){
+	this.findOne({aspect: name}, function (err, result){
 		if (err) {
 			callback(err);
 		}
@@ -48,4 +42,6 @@ Vote.prototype.add=function(name, competitor, callback){
 	});
 };
 
-module.exports=Vote;
+var VoteModel=mongoose.model('Vote', voteSchema);
+
+module.exports=VoteModel;
