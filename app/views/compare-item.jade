@@ -2,10 +2,10 @@ li.result-item(id= val.aspect+'-result')
 	table
 		tr.result-title
 			th
-				a(href='/vote')= val.competitors[0]+' VS '+val.competitors[1]+': '+val.aspect
+				a(href='/vote')= val.aspect
 			th
 				a(href='/vote')
-					img(src= '/images/result_'+val.aspect+'.jpg')
+					img(src= '/images/demo/result_'+val.aspect+'.jpg')
 		tr.result-num
 			td= val.vote[0]+val.vote[1]
 			td
