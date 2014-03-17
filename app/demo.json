@@ -1,0 +1,12 @@
+[
+	{
+		"aspect": "surface",
+		"competitors": ["Macbook Air", "Thinkpad X1"],
+		"vote": [0, 0]
+	},
+	{
+		"aspect": "os",
+		"competitors": ["Macbook Air", "Thinkpad X1"],
+		"vote": [0, 0]
+	}
+]

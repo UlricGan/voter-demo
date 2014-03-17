@@ -1,6 +1,7 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 mongoose.connect('mongodb://localhost/votedb');
+var demo=require('../demo.json');
 
 var voteSchema=new Schema({
 	aspect: String,
@@ -43,5 +44,15 @@ voteSchema.statics.add=function(name, competitor, callback){
 };
 
 var VoteModel=mongoose.model('Vote', voteSchema);
-
 module.exports=VoteModel;
+
+//demo
+
+VoteModel.getAll(function(err, result){
+	console.log(result);
+	if(result.length===0){
+		VoteModel.create(demo, function(err){
+			console.log('demo is builded');
+		});
+	}
+});
