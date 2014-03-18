@@ -41,6 +41,6 @@ server.listen(app.get('port'), function(){
 
 io.sockets.on('connection', function(socket){
 	emitter.on('change', function(aspect, competitor){
-		socket.emit('roll', aspect, competitor);
+		io.sockets.emit('roll', aspect, competitor);
 	});
 });
