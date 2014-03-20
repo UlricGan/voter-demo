@@ -105,15 +105,34 @@ table{
 }
 
 .vote-result{
-	position: relative;
-	top:-200px;
+	position: absolute;
+	top:50%;
 	width: 180px;
 	height: 50px;
 	line-height: 50px;
 	font-size: 20px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.7) !important;
 	text-align: center;
+}
+
+.is-hide{
 	display: none;
+}
+
+.is-selected .vote-result{
+	background: url(../images/checked.png) no-repeat;
+}
+
+.is-selected.vote-left .vote-result{
+	background-position: 0 0;
+}
+
+.is-selected.vote-right .vote-result{
+	background-position: 100% 0;
+}
+
+.is-selected h3{
+	background-color: #2DA1DC;
 }
 
 .vote-left .vote-result{

@@ -15,7 +15,7 @@ module.exports=function(app, emitter){
 	app.get('/', setEmitter, result.index);
 	app.get('/vote', setEmitter, votes.index);
 
-	app.get('/roll/:aspect/:competitor', setEmitter, result.rollResult);
+	app.get('/roll/:aspect', setEmitter, result.rollResult);
 	app.get('/vote/:aspect/:competitor', setEmitter, votes.updateVote);
 
 

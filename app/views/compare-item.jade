@@ -2,7 +2,7 @@ li.result-item(id= val.aspect+'-result')
 	table
 		tr.result-title
 			th
-				a(href='/vote')= val.aspect
+				a(href='/vote')= val.aspect.toUpperCase()
 			th
 				a(href='/vote')
 					img(src= '/images/demo/result_'+val.aspect+'.jpg')

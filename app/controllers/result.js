@@ -13,12 +13,11 @@ var index=function(req, res){
 
 var rollResult=function(req, res){
 	var aspect=req.params.aspect;
-	var competitor=req.params.competitor;
 	VoteModel.getOne(aspect, function(err, result){
-		var nums={
-			num: result.vote[competitor]
+		var voteNums={
+			nums: result.vote
 		};
-		res.send(nums);
+		res.send(voteNums);
 	});
 };
 
