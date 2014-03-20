@@ -113,10 +113,11 @@ table{
 	font-size: 20px;
 	background-color: rgba(255, 255, 255, 0.7) !important;
 	text-align: center;
+	display: none;
 }
 
-.is-hide{
-	display: none;
+.is-show .vote-result{
+	display: block;
 }
 
 .is-selected .vote-result{

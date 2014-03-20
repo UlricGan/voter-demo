@@ -2,6 +2,10 @@ var VoteModel=require('../models/vote');
 
 var index=function(req, res){
 	VoteModel.getAll(function(err, votes){
+		votes.forEach(function(value){
+			var isAspect=value.aspect;
+			value.hasVote= req.session[isAspect];
+		});
 		var result={
 			title: 'Vote',
 			main: votes

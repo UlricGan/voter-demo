@@ -27,8 +27,10 @@ $(document).ready(function(){
 			url='/vote/'+aspect+'/'+competitor;
 		$.ajax(url).done(function(data){
 			if(data.notChange) return;
-			$result.find('.vote-result').removeClass('is-hide');
-			$(_this).parent().find('.is-selected').removeClass('is-selected');
+			if(!$result.hasClass('is-show')){
+				$result.addClass('is-show');
+			}
+			$result.find('.is-selected').removeClass('is-selected');
 			$(_this).addClass('is-selected');
 			$leftResult.text(leftResultNum+data[0]);
 			$rightResult.text(rightResultNum+data[1]);
