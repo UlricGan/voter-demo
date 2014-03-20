@@ -11,6 +11,8 @@ var MongoStore=require('connect-mongo')(express);
 var socket=require('socket.io');
 var Emitter=require('events').EventEmitter;
 var routes=require('./routes/routes');
+var config=require('./config');
+
 var emitter=new Emitter();
 
 
@@ -31,7 +33,8 @@ app.use(express.session({
 	secret: 'myvote',
 	cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},
 	store: new MongoStore({
-		db: 'votedb'
+		db: config.db,
+		host: config.host
 	})
 }));
 app.use(app.router);

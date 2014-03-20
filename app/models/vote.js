@@ -1,7 +1,9 @@
 var mongoose=require('mongoose');
-var Schema=mongoose.Schema;
-mongoose.connect('mongodb://localhost/votedb');
+var config=require('../../config');
 var demo=require('../demo.json');
+
+var Schema=mongoose.Schema;
+mongoose.connect('mongodb://'+config.host+'/'+config.db);
 
 var voteSchema=new Schema({
 	aspect: String,
@@ -61,7 +63,6 @@ voteSchema.statics.balance=function(name, competitor, callback){
 };
 
 var VoteModel=mongoose.model('Vote', voteSchema);
-module.exports=VoteModel;
 
 //demo
 
@@ -72,3 +73,5 @@ VoteModel.getAll(function(err, result){
 		});
 	}
 });
+
+module.exports=VoteModel;
