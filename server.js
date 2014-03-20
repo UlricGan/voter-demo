@@ -7,6 +7,7 @@ var express= require('express');
 var http = require('http');
 var path = require('path');
 var mongoose=require('mongoose');
+var MongoStore=require('connect-mongo')(express);
 var socket=require('socket.io');
 var Emitter=require('events').EventEmitter;
 var routes=require('./routes/routes');
@@ -25,6 +26,14 @@ app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.cookieParser());
+app.use(express.session({
+	secret: 'myvote',
+	cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},
+	store: new MongoStore({
+		db: 'votedb'
+	})
+}));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -41,6 +50,6 @@ server.listen(app.get('port'), function(){
 
 io.sockets.on('connection', function(socket){
 	emitter.on('change', function(aspect, competitor){
-		io.sockets.emit('roll', aspect, competitor);
+		socket.broadcast.emit('roll', aspect, competitor);
 	});
 });
