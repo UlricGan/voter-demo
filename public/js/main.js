@@ -5,12 +5,19 @@ $(document).ready(function(){
 	if(document.title==='Vote Result'){
 		socket.on('roll', function(aspect, competitor){
 			var $target=$('#'+aspect+'-result .result-num');
+			var $table=$target.parent();
 			if(!$target) return;
 			var url='/roll/'+aspect;
 			$.ajax(url).done(function(data){
-				$target.find('span[cop="'+competitor+'"]').text(data.nums[competitor]);
+				$target.find('span[cop="'+competitor+'"]')
+					.text(data.nums[competitor])
+					.addClass('is-active');
+				$table.addClass('is-active');
 				$target.find('span[cop="'+(1-parseInt(competitor))+'"]').text(data.nums[(1-parseInt(competitor))]);
 				$target.find('td:first-child').text(data.nums[0]+data.nums[1]);
+				setTimeout(function(){
+					$table.removeClass('is-active').find('.is-active').removeClass('is-active');
+				}, 300);
 			});
 		});
 	}
